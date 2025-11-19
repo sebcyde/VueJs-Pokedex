@@ -1,19 +1,7 @@
-<script lang="ts" setup>
-const props = defineProps<{
-  buttonCopy: string;
-  emitFnName: string;
-  pokemonUrl: string;
-  // activeFunction: () => {};
-}>();
-
-// console.log("props.activeFunction: ", props.activeFunction)
-</script>
-
 <template ButtonProps>
   <!-- <button class="cybr-btn" @click="() => props.activeFunction()"> -->
-  <div class="FunctionButtonWrapper">
-    <button class="cybr-btn" @click="$emit(props.emitFnName, props.pokemonUrl)">
-      {{ buttonCopy }}<span aria-hidden>_</span>
+  <div class="GhostFunctionButtonWrapper">
+    <button class="cybr-btn">
       <span aria-hidden class="cybr-btn__glitch">R25</span>
       <span aria-hidden class="cybr-btn__tag">R25</span>
     </button>
@@ -21,7 +9,7 @@ const props = defineProps<{
 </template>
 
 <style scoped>
-.FunctionButtonWrapper {
+.GhostFunctionButtonWrapper {
   justify-content: flex-start;
   margin: 0px 0px 10px;
   align-items: center;
@@ -30,18 +18,13 @@ const props = defineProps<{
   width: 300px;
 
   .cybr-btn {
-    --primary: hsl(
-      var(--primary-hue),
-      85%,
-      calc(var(--primary-lightness, 50) * 1%)
-    );
-    --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
-    --primary-hue: 0;
-    --secondary-hue: 30;
-    --primary-lightness: 30;
-    --secondary-lightness: 40;
-    /* --primary-lightness: 50; */
-    --color: hsl(0, 0%, 100%);
+    animation: pulse 1.4s ease-in-out infinite;
+
+    --primary: hsl(0 0% 70%);
+    --shadow-primary: hsl(0 0% 70%);
+    --color: hsl(0 0% 70%);
+    --opacity: 0.2;
+
     --font-size: 26px;
     --shadow-primary-hue: 180;
     --label-size: 9px;
@@ -386,6 +369,17 @@ const props = defineProps<{
   100% {
     -webkit-clip-path: var(--clip-four);
     clip-path: var(--clip-four);
+  }
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.8;
   }
 }
 </style>

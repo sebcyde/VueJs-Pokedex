@@ -2,6 +2,8 @@
 
 body {
   background-image: url("./BG_2.jpg");
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
 }
 
@@ -30,11 +32,5 @@ a,
   body {
     display: flex;
     place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
   }
 }

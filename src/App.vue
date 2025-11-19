@@ -34,7 +34,5 @@ const currentView = computed(() => {
 .App {
   width: auto;
   height: auto;
-  background-image: url("./assets/BG_1.jpg");
-  background-color: blue;
 }
 </style>
